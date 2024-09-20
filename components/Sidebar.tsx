@@ -2,8 +2,8 @@
 
 import { sidebarLinks } from "@/constants";
 import { cn } from "@/lib/utils";
-import { Link } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Sidebar = ({ user }: SiderbarProps) => {
@@ -21,14 +21,14 @@ const Sidebar = ({ user }: SiderbarProps) => {
             width={34}
             height={34}
             alt="Horizon logo"
-            className="size-[24px] max-xl: size-14"
+            className="size-[24px] max-xl:size-14"
           />
           <h1 className="sidebar-logo">Horizon</h1>
         </Link>
-
         {sidebarLinks.map((item) => {
           const isActive =
             pathname === item.route || pathname.startsWith(`${item.route}/`);
+
           return (
             <Link
               href={item.route}
@@ -40,8 +40,10 @@ const Sidebar = ({ user }: SiderbarProps) => {
                   src={item.imgURL}
                   alt={item.label}
                   fill
-                  className={cn({ "brightness-[3] invert-0": isActive })}
-                ></Image>
+                  className={cn({
+                    "brightness-[3] invert-0": isActive,
+                  })}
+                />
               </div>
               <p className={cn("sidebar-label", { "!text-white": isActive })}>
                 {item.label}
@@ -49,7 +51,9 @@ const Sidebar = ({ user }: SiderbarProps) => {
             </Link>
           );
         })}
+        USER
       </nav>
+      FOOTER
     </section>
   );
 };

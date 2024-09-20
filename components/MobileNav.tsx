@@ -9,14 +9,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
-import { Link } from "lucide-react";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
 import { sidebarLinks } from "@/constants";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const MobileNav = ({ user }: MobileNavProps) => {
   const pathname = usePathname();
+
   return (
     <section className="w-full max-w-[264px]">
       <Sheet>
@@ -47,7 +48,6 @@ const MobileNav = ({ user }: MobileNavProps) => {
               Horizon
             </h1>
           </Link>
-
           <div className="mobilenav-sheet">
             <SheetClose asChild>
               <nav className="flex h-full flex-col gap-6 pt-16 text-white">
@@ -55,6 +55,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                   const isActive =
                     pathname === item.route ||
                     pathname.startsWith(`${item.route}/`);
+
                   return (
                     <SheetClose
                       asChild
@@ -63,7 +64,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                       <Link
                         href={item.route}
                         key={item.label}
-                        className={cn("mobilenav-sheet-close w-full", {
+                        className={cn("mobilenav-sheet_close w-full", {
                           "bg-bank-gradient": isActive,
                         })}
                       >
@@ -78,7 +79,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                         />
                         <p
                           className={cn("text-16 font-semibold text-black-2", {
-                            "!text-white": isActive,
+                            "text-white": isActive,
                           })}
                         >
                           {item.label}
@@ -87,8 +88,10 @@ const MobileNav = ({ user }: MobileNavProps) => {
                     </SheetClose>
                   );
                 })}
+                USER
               </nav>
             </SheetClose>
+            FOOTER
           </div>
         </SheetContent>
       </Sheet>

@@ -19,10 +19,11 @@ const BankCard = ({
             <h1 className="text-16 font-semibold text-white">
               {account.name || userName}
             </h1>
-            <p className="font-ibem-plex-serif font-black text-white">
+            <p className="font-ibm-plex-serif font-black text-white">
               {formatAmount(account.currentBalance)}
             </p>
           </div>
+
           <article className="flex flex-col gap-2">
             <div className="flex justify-between">
               <h1 className="text-12 font-semibold text-white">{userName}</h1>
@@ -33,9 +34,10 @@ const BankCard = ({
             </p>
           </article>
         </div>
+
         <div className="bank-card_icon">
           <Image
-            src="/iconsPaypass.svg"
+            src="/icons/Paypass.svg"
             width={20}
             height={24}
             alt="pay"
@@ -48,6 +50,7 @@ const BankCard = ({
             className="ml-5"
           />
         </div>
+
         <Image
           src="/icons/lines.png"
           width={316}
@@ -56,6 +59,8 @@ const BankCard = ({
           className="absolute top-0 left-0"
         />
       </Link>
+
+      {/* COPY */}
     </div>
   );
 };
